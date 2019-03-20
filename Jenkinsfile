@@ -7,7 +7,7 @@ pipeline {
 
     stages {
 
-        stage('terraform started') {
+        stage('Instance Idleness check') {
             steps {
                 sh 'echo "Started...!" '
             }
