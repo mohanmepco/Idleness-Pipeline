@@ -1,0 +1,14 @@
+#!/bin/bash
+#Create spot instance
+aws ec2 request-spot-instances --spot-price "0.0298" --instance-count 1 --type "one-time" --launch-specification file://config.json >output.txt
+#Get Spot request ID using grep command
+spotid=$(grep -r "sir-" output.txt | cut -d':' -f 2 | cut -d'"' -f 2)
+#Sleep command to wait instance to come up
+sleep 20s
+#Describe the instance using sir ID
+aws ec2 describe-spot-instance-requests --spot-instance-request-ids $spotid >instance.txt
+#Grep the instance ID from describe command
+instanceid=$(grep -r "InstanceId" instance.txt | cut -d':' -f 2 | cut -d'"' -f 2)
+ltime=$(grep -r "CreateTime" instance.txt | cut -d '"' -f 4 |  cut -d '"' -f 2)
+#Tag the spot instance using create tag command
+aws ec2 create-tags --resources ${instanceid} --tags Key=Application,Value=Standard Key=Name,Value=SpotInstance Key=Lanuchtime,Value=$ltime
