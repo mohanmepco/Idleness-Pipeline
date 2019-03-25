@@ -14,7 +14,7 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                sh ' rm -r *; git clone https://github.com/mohanmepco/Terraform-Google-cloud.git'
+                sh ' rm -r *; git clone https://github.com/mohanmepco/Idleness-Pipeline.git'
             }
         }
 		stage('Copy Json file'){
