@@ -24,7 +24,12 @@ pipeline {
         }
 		stage('CreateSpotInstance'){
             steps {
-                sh 'cd /root/.jenkins/workspace/Idleness/Idleness-Pipeline; sh Spot-Instance '
+                sh 'cd /root/.jenkins/workspace/Idleness/Idleness-Pipeline; sh Spot-Instance'
+			}
+		}
+		stage('CheckIdleness'){
+            steps {
+                sh 'cd /root/.jenkins/workspace/Idleness/Idleness-Pipeline; sh Idleness-script'
 			}
 		}
 	}
