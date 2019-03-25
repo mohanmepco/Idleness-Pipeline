@@ -19,7 +19,7 @@ pipeline {
         }
 		stage('PersmissionToExecute'){
             steps {
-                sh 'chomd -R 755 /root/.jenkins/workspace/Idleness/Idleness-Pipeline'
+                sh 'chmomd -R 755 /root/.jenkins/workspace/Idleness/Idleness-Pipeline'
             }
         }
     }
