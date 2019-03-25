@@ -1,0 +1,15 @@
+{
+
+"ImageId": "ami-97785bed",
+
+"KeyName": "aws-free-mohan",
+
+"SecurityGroupIds": [ "sg-4dd5a807" ],
+
+"InstanceType": "c3.large",
+
+"Placement": {
+"AvailabilityZone": "us-east-1b"
+
+}
+}
