@@ -19,7 +19,7 @@ pipeline {
         }
 		stage('PersmissionToExecute'){
             steps {
-                sh 'cd /root/.jenkins/workspace/Idleness/Idleness-Pipeline; chmod 755 Spot-Instance'
+                sh 'cd /root/.jenkins/workspace/Idleness/Idleness-Pipeline; chmod 755 Spot-Instance Idleness-script'
             }
         }
     }
