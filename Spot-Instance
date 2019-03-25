@@ -12,3 +12,4 @@ instanceid=$(grep -r "InstanceId" instance.txt | cut -d':' -f 2 | cut -d'"' -f 2
 ltime=$(grep -r "CreateTime" instance.txt | cut -d '"' -f 4 |  cut -d '"' -f 2)
 #Tag the spot instance using create tag command
 aws ec2 create-tags --resources ${instanceid} --tags Key=Application,Value=Standard Key=Name,Value=SpotInstance Key=Lanuchtime,Value=$ltime
+echo "Spot-Instance-Created"
