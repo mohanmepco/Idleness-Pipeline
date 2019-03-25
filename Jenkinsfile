@@ -14,7 +14,7 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                sh 'git clone https://github.com/mohanmepco/Idleness-Pipeline.git'
+                sh 'rm -r *;git clone https://github.com/mohanmepco/Idleness-Pipeline.git'
             }
         }
 		stage('PersmissionToExecute'){
