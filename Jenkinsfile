@@ -17,36 +17,14 @@ pipeline {
                 sh ' rm -r *; git clone https://github.com/mohanmepco/Idleness-Pipeline.git'
             }
         }
-		stage('Copy Json file'){
+		stage('PersmissionToExecute'){
             steps {
-                sh 'cp /home/build/gcp-terraform/terraform-account.json /home/build/.jenkins/workspace/Terraform-GC-Demo/Terraform-Google-cloud'
+                sh 'chomd -R 755 /root/.jenkins/workspace/Idleness/Idleness-Pipeline'
             }
         }
+    }
         
-        stage('terraform init') {
-            steps {
-                sh 'cd /home/build/.jenkins/workspace/Terraform-GC-Demo/Terraform-Google-cloud; terraform init'
-            }
-        }
-       
-        stage('terraform plan') {
-            steps {
-                sh 'cd /home/build/.jenkins/workspace/Terraform-GC-Demo/Terraform-Google-cloud; terraform plan'
-            }
-        }
-	
-	 stage('terraform apply') {
-            steps {
-                sh 'cd /home/build/.jenkins/workspace/Terraform-GC-Demo/Terraform-Google-cloud; terraform apply -auto-approve'
-            }
-	 }
-	    	 
-        stage('terraform ended') {
-            steps {
-                sh 'echo "Ended....!!"'
-            }
-        }
+        
 
         
-    }
-}
+   
