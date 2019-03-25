@@ -22,10 +22,10 @@ pipeline {
                 sh 'cd /root/.jenkins/workspace/Idleness/Idleness-Pipeline; chmod 755 Spot-Instance Idleness-script'
             }
         }
-    }
+		stage('CreateSpotInstance'){
+            steps {
+                sh 'cd /root/.jenkins/workspace/Idleness/Idleness-Pipeline; sh Spot-Instance '
+			}
+		}
+	}
 }
-        
-        
-
-        
-   
